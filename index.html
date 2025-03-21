@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B Strategy - Bitcoin Consulting</title>
+    <style>
+        /* Reset default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #F7931A;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 4.5rem;
+            position: relative; /* Added to anchor the dropdown */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bitcoin-logo {
+            font-size: 2.75rem;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+        .strategy-text {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        /* Navigation Styles */
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .header-nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .account-icon {
+            font-size: 1.5rem;
+            color: #FFFFFF;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #FFFFFF;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .header-nav ul {
+                display: none;
+                position: absolute;
+                top: 100%; /* Stays below header */
+                right: 0;
+                background-color: #F7931A;
+                flex-direction: column;
+                width: 200px;
+                padding: 1rem;
+                text-align: right;
+            }
+
+            .header-nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            #menu-toggle:checked ~ ul {
+                display: flex;
+            }
+
+            .account-icon {
+                margin-left: 0;
+            }
+        }
+
+        /* Modal Styles */
+        #signin-toggle {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #signin-toggle:checked ~ .modal {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            width: 300px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .modal-header {
+            padding: 1rem;
+            position: relative;
+            border-bottom: 1px solid #333;
+        }
+
+        .modal-body {
+            padding: 1rem;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 0;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background-color: #FFFFFF;
+            color: #000000;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .modal-content button {
+            background-color: #F7931A;
+            color: #FFFFFF;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .modal-content button:hover {
+            background-color: #e08717;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1.5rem;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <span class="bitcoin-logo">₿</span>
+            <span class="strategy-text">Strategy</span>
+        </div>
+        <nav class="header-nav">
+            <label for="menu-toggle" class="hamburger">☰</label>
+            <input type="checkbox" id="menu-toggle">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <label for="signin-toggle">
+                        <span class="account-icon">👤</span>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sign-in Modal -->
+    <input type="checkbox" id="signin-toggle">
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <label for="signin-toggle" class="close-modal">✕</label>
+            </div>
+            <div class="modal-body">
+                <input type="text" placeholder="Username" aria-label="Username">
+                <input type="password" placeholder="Password" aria-label="Password">
+                <button>Sign In</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <section class="hero">
+            <h2>Welcome to Bitcoin Strategy</h2>
+            <p>Your premier Bitcoin consulting service. We're here to help you navigate the world of cryptocurrency with expert guidance and strategic solutions.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 ₿ Strategy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
