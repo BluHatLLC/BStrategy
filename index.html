@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B Strategy - Bitcoin Consulting</title>
+    <title>₿ Strategy - Bitcoin Consulting</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        /* Reset default margins and padding */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,6 @@
             line-height: 1.6;
         }
 
-        /* Header Styles */
         header {
             background-color: #F7931A;
             padding: 0.5rem 2rem;
@@ -57,7 +55,6 @@
             font-weight: bold;
         }
 
-        /* Navigation Styles */
         .header-nav {
             display: flex;
             align-items: center;
@@ -87,7 +84,6 @@
             cursor: pointer;
         }
 
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -99,7 +95,6 @@
             display: none;
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -130,7 +125,6 @@
             }
         }
 
-        /* Modal Styles (General) */
         .modal {
             display: none;
             position: fixed;
@@ -201,7 +195,6 @@
             cursor: pointer;
         }
 
-        /* Sign-in Modal */
         #signin-toggle {
             display: none;
         }
@@ -210,7 +203,6 @@
             display: flex;
         }
 
-        /* Consultation Modal */
         #consultation-toggle {
             display: none;
         }
@@ -219,7 +211,6 @@
             display: flex;
         }
 
-        /* Note in Consultation Modal */
         .modal-note {
             font-size: 0.9rem;
             color: #cccccc;
@@ -227,7 +218,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Flatpickr Custom Styles */
         .flatpickr-calendar {
             background: #1a1a1a;
             color: #FFFFFF;
@@ -260,7 +250,7 @@
         }
 
         .flatpickr-weekday {
-            color: #FFFFFF !important; /* Ensure day names are white */
+            color: #FFFFFF !important;
             background: #1a1a1a;
         }
 
@@ -268,7 +258,6 @@
             border-color: #F7931A;
         }
 
-        /* Main Content */
         .main-content {
             max-width: 1200px;
             margin: 2rem auto;
@@ -308,7 +297,6 @@
             background-color: #e08717;
         }
 
-        /* Profile Section */
         .profile-section {
             padding: 3rem 0;
             text-align: center;
@@ -384,7 +372,6 @@
             }
         }
 
-        /* Footer */
         footer {
             background-color: #1a1a1a;
             padding: 1rem;
@@ -406,14 +393,13 @@
             <ul>
                 <li>
                     <label for="signin-toggle">
-                        <span class="account-icon">👤</span>
+                        <i class="account-icon fa-solid fa-user-tie"></i>
                     </label>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sign-in Modal -->
     <input type="checkbox" id="signin-toggle">
     <div class="modal signin-modal">
         <div class="modal-content">
@@ -429,7 +415,6 @@
         </div>
     </div>
 
-    <!-- Consultation Modal -->
     <input type="checkbox" id="consultation-toggle">
     <div class="modal consultation-modal">
         <div class="modal-content">
@@ -467,11 +452,10 @@
     <div class="main-content">
         <section class="hero">
             <h2>Welcome to ₿ Strategy</h2>
-            <p>Your premier Bitcoin consulting service. I offer personalized 1:1 guidance to help you navigate the world of Bitcoin with expert strategies tailored to your goals.</p>
+            <p>Your trusted partner for corporate Bitcoin treasury solutions. We provide expert consulting services to help organizations strategically integrate Bitcoin into their balance sheets, optimizing financial resilience and long-term value.</p>
             <label for="consultation-toggle" class="cta-button">Book a Free Consultation</label>
         </section>
 
-        <!-- Profile Section -->
         <section class="profile-section" id="about">
             <div class="profile-container">
                 <div class="profile-image">
@@ -479,36 +463,32 @@
                 </div>
                 <div class="profile-text">
                     <h3>About Jon E</h3>
-                    <p>Are you lost in the noise? I have been studying and using Bitcoin since 2020. In a world filled with information overload, understanding the signal in the noise is essential for success. Whether you’re new to Bitcoin or a seasoned investor, I’m here to provide clarity, confidence, and actionable insights through 1:1 consulting in all-things Bitcoin. <label for="consultation-toggle" class="consultation-link">Book a free consultation</label> to discuss your Bitcoin journey and how I might be able to help.</p>
+                    <p>Navigating the complexities of Bitcoin adoption for corporate treasuries requires expertise and clarity. I have been immersed in Bitcoin since 2020, and since 2025, I have been advising organizations on institutional-grade strategies for integrating Bitcoin into their financial frameworks. Whether your company is exploring Bitcoin as a reserve asset or seeking to optimize its treasury management, I offer tailored consulting to align with your financial objectives. <label for="consultation-toggle" class="consultation-link">Book a free consultation</label> to discuss how ₿ Strategy can support your organization’s Bitcoin journey.</p>
                 </div>
             </div>
         </section>
     </div>
 
-    
+    <footer>
+    </footer>
 
-    <!-- Include Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        // Initialize Flatpickr on the date input
         flatpickr("#consultation-date", {
-            minDate: "today", // Restrict to future dates
+            minDate: "today",
             disable: [
                 function(date) {
-                    // Disable weekends (Saturday = 6, Sunday = 0)
                     return (date.getDay() === 0 || date.getDay() === 6);
                 }
             ],
             dateFormat: "Y-m-d",
             onReady: function(selectedDates, dateStr, instance) {
-                // Ensure the input field shows a placeholder when no date is selected
                 instance.input.placeholder = "Select a Date";
             }
         });
 
-        // Form submission validation and submission to Formspree
         document.getElementById('consultation-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault();
 
             const dateInput = document.getElementById('consultation-date').value;
             const timeInput = document.getElementById('consultation-time').value;
@@ -516,17 +496,11 @@
             const errorMessage = document.getElementById('error-message');
             const selectedDate = new Date(dateInput);
 
-            // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
             const dayOfWeek = selectedDate.getDay();
-
-            // Check if the selected day is Monday to Friday (1 to 5)
             const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
-
-            // Check if the CAPTCHA answer is correct (20 + 1 = 21)
             const isCaptchaCorrect = captchaAnswer === '21';
 
             if (isWeekday && isCaptchaCorrect) {
-                // If valid, submit the form to Formspree
                 errorMessage.style.display = 'none';
                 const form = document.getElementById('consultation-form');
                 fetch(form.action, {
@@ -540,7 +514,7 @@
                     if (response.ok) {
                         alert('Consultation booked successfully! We will confirm your appointment soon.');
                         form.reset();
-                        document.getElementById('consultation-toggle').checked = false; // Close the modal
+                        document.getElementById('consultation-toggle').checked = false;
                     } else {
                         alert('There was an error submitting the form. Please try again.');
                     }
@@ -550,7 +524,6 @@
                     console.error('Error:', error);
                 });
             } else {
-                // If invalid, show error message
                 errorMessage.textContent = !isWeekday ? 'Please select a date from Monday to Friday.' : 'Incorrect CAPTCHA answer. Please try again.';
                 errorMessage.style.display = 'block';
             }
